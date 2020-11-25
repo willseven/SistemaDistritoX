@@ -18,19 +18,19 @@
                         <img src="img/logo5.png" alt="" width="70"/>
                     </li>
                     <li class="nav-item">
-                        <a style="margin-left: 10px; border: none;" class="btn btn-outline-light" href="Controlador?accion=Inicio" target="myFrame">Inicio</a>
+                        <a style="margin-left: 10px; border: none;" class="btn btn-outline-light" href="Controlador?menu=Inicio" target="myFrame">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a style="margin-left: 10px; border: none;" class="btn btn-outline-light" href="Controlador?accion=Tramitar" target="myFrame">Tramitar</a>
+                        <a style="margin-left: 10px; border: none;" class="btn btn-outline-light" href="Controlador?menu=Tramitar" target="myFrame">Tramitar</a>
                     </li>
                     <li class="nav-item">
-                        <a style="margin-left: 10px; border: none;" class="btn btn-outline-light" href="Controlador?accion=Historial" target="myFrame">Historial</a>
+                        <a style="margin-left: 10px; border: none;" class="btn btn-outline-light" href="Controlador?menu=Historial" target="myFrame">Historial</a>
                     </li>
                     <li class="nav-item">
-                        <a style="margin-left: 10px; border: none;" class="btn btn-outline-light" href="Controlador?accion=Contactos" target="myFrame">Contactos</a>
+                        <a style="margin-left: 10px; border: none;" class="btn btn-outline-light" href="Controlador?menu=Contactos" target="myFrame">Contactos</a>
                     </li>
                     <li class="nav-item">
-                        <a style="margin-left: 10px; border: none;" class="btn btn-outline-light" href="Controlador?accion=Acercade" target="myFrame">Acerca de</a>
+                        <a style="margin-left: 10px; border: none;" class="btn btn-outline-light" href="Controlador?menu=Acercade" target="myFrame">Acerca de</a>
                     </li>
 
                 </ul>                  
@@ -41,9 +41,9 @@
                     ${usuario.getNom()}
                 </button>
                 <div class="dropdown-menu dropdown-menu-lg-right dropdown-menu-sm-right text-center">
-                    <a href="Controlador?accion=Perfil" target="myFrame"><img src="img/user.png" alt="60" width="60"/></a>
-                    <a class="dropdown-item" href="Controlador?accion=Perfil" target="myFrame">${usuario.getNom()}</a>
-                    <a class="dropdown-item" href="Controlador?accion=Perfil" target="myFrame">Tu Perfil</a>
+                    <a href="Controlador?menu=Perfil" target="myFrame"><img src="img/user.png" alt="60" width="60"/></a>
+                    <a class="dropdown-item" href="Controlador?menu=Perfil" target="myFrame">${usuario.getNom()}</a>
+                    <a class="dropdown-item" href="Controlador?menu=Perfil" target="myFrame">Tu Perfil</a>
                     <div class="dropdown-divider"></div>
                     <form action="Validar" method="POST">
                         <button name="accion"   value="Salir" class="dropdown-item" href="#">Salir</button>

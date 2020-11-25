@@ -35,7 +35,7 @@ public class Validar extends HttpServlet {
             us = udao.validar(nom, clave);
             if (us.getNom()!= null) {
                 request.setAttribute("usuario", us);
-                request.getRequestDispatcher("Controlador?accion=Principal").forward(request, response);
+                request.getRequestDispatcher("Controlador?menu=Principal").forward(request, response);
             } else {
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             }
