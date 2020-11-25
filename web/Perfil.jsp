@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -49,52 +50,58 @@
                         </form>
                     </div>
                 </div>
-                </div>
-                <div class="col-sm-9">
-                    <div class="card">
-                        <div class="card-body">
+            </div>
+            <div class="col-sm-9">
+                <div class="card">
+                    <div class="card-body">
 
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Nombres</th>
-                                        <th>Apellidos</th>
-                                        <th>celular</th>
-                                        <th>ci</th>
-                                        <th>fenac</th>
-                                        <th>direccion</th>
-                                        <th>email</th>
-                                        <th>clave</th>
-                                        <th>tipouser</th>
-                                        <th>departamento</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Nombres</th>
+                                    <th>Apellidos</th>
+                                    <th>celular</th>
+                                    <th>ci</th>
+                                    <th>fenac</th>
+                                    <th>direccion</th>
+                                    <th>email</th>
+                                    <th>clave</th>
+                                    <th>tipouser</th>
+                                    <th>departamento</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <c:forEach var="us" items="${usuarios}">
+                                <tr>
+                                    <td>${us.getId()}</td>
+                                    <td>${us.getNom()}</td>
+                                    <td>${us.getApellido()}</td>
+                                    <td>${us.getCel()}</td>
+                                    <td>${us.getCi()}</td>
+                                    <td>${us.getFnac()}</td>
+                                    <td>${us.getDir()}</td>
+                                    <td>${us.getEmail()}</td>
+                                    <td>${us.getClave()}</td>
+                                    <td>${us.getTipous()}</td>
+                                    <td>${us.getTipodep()}</td>
+                                    <td>
+                                        <a>Editar</a>
+                                        <a>Eliminar</a>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
 
-                        </div>
                     </div>
                 </div>
-
-            
             </div>
 
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     </body>
 </html>

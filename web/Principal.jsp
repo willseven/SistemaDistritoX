@@ -43,7 +43,7 @@
                 <div class="dropdown-menu dropdown-menu-lg-right dropdown-menu-sm-right text-center">
                     <a href="Controlador?menu=Perfil" target="myFrame"><img src="img/user.png" alt="60" width="60"/></a>
                     <a class="dropdown-item" href="Controlador?menu=Perfil" target="myFrame">${usuario.getNom()}</a>
-                    <a class="dropdown-item" href="Controlador?menu=Perfil" target="myFrame">Tu Perfil</a>
+                    <a class="dropdown-item" href="Controlador?menu=Perfil&accion=Listar" target="myFrame">Tu Perfil</a>
                     <div class="dropdown-divider"></div>
                     <form action="Validar" method="POST">
                         <button name="accion"   value="Salir" class="dropdown-item" href="#">Salir</button>

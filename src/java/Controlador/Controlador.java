@@ -1,7 +1,10 @@
 package Controlador;
 
+import Modelo.Usuario;
+import Modelo.UsuarioDao;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,7 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 
 public class Controlador extends HttpServlet {
 
-
+    Usuario us = new Usuario();
+    UsuarioDao udao = new UsuarioDao();
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String menu = request.getParameter("menu");
@@ -20,6 +25,29 @@ public class Controlador extends HttpServlet {
             request.getRequestDispatcher("Principal.jsp").forward(request, response);
         }
         if (menu.equals("Perfil")) {
+            
+            switch (accion) {
+                case "Listar":
+                    List lista = udao.listar();
+                    request.setAttribute("usuarios", lista);
+                    break;
+                case "Agregar":
+                    
+                    break;
+                case "Editar":
+                    
+                    break;
+                case "Actualizar":
+                   
+                    break;
+                case "Delete":
+                    
+                    break;
+                default:
+                    throw new AssertionError();
+            
+            
+        }
             request.getRequestDispatcher("Perfil.jsp").forward(request, response);
         }
         if (menu.equals("Inicio")) {
