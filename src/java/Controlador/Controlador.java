@@ -24,15 +24,37 @@ public class Controlador extends HttpServlet {
         if (menu.equals("Principal")) {
             request.getRequestDispatcher("Principal.jsp").forward(request, response);
         }
-        if (menu.equals("Perfil")) {
+            if (menu.equals("Adminuser")) {
             
             switch (accion) {
                 case "Listar":
                     List lista = udao.listar();
                     request.setAttribute("usuarios", lista);
                     break;
-                case "Agregar":
-                    
+                case "Agregar":                
+                String nom = request.getParameter("txtNombres");
+                String apellido = request.getParameter("txtApellido");
+                String cel = request.getParameter("txtCelular");
+                int ci = Integer.parseInt(request.getParameter("txtCi"));
+                String fanac = request.getParameter("txtFnac");
+                String direc = request.getParameter("txtDirec");
+                String email = request.getParameter("txtEmail");
+                String clave = request.getParameter("txtClave");
+                int tipous = Integer.parseInt(request.getParameter("txtTipo"));
+                int tipodep = Integer.parseInt(request.getParameter("txtDepar"));
+                us.setNom(nom);
+                us.setApellido(apellido);
+                us.setCel(cel);
+                us.setCi(ci);
+                us.setFnac(fanac);
+                us.setDir(direc);
+                us.setEmail(email);
+                us.setClave(clave);
+                us.setTipous(tipous);
+                us.setTipodep(tipodep);
+                
+                udao.agregar(us);
+                request.getRequestDispatcher("Controlador?menu=Adminuser&accion=Listar").forward(request, response);
                     break;
                 case "Editar":
                     
@@ -48,7 +70,7 @@ public class Controlador extends HttpServlet {
             
             
         }
-            request.getRequestDispatcher("Perfil.jsp").forward(request, response);
+            request.getRequestDispatcher("Adminuser.jsp").forward(request, response);
         }
         if (menu.equals("Inicio")) {
             request.getRequestDispatcher("Inicio.jsp").forward(request, response);

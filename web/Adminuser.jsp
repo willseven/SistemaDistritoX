@@ -12,10 +12,7 @@
             <div class="card col-sm-3">
                 <div class="card-body">
                     <div class="form-group"> 
-                        <form>                                       
-                            <div class="form-group">                
-                                <input type="text" name="txtIdusuario" class="form-control" placeholder="id">
-                            </div>
+                        <form action="Controlador?menu=Adminuser" method="POST">                                       
                             <div class="form-group">
                                 <input type="text" name="txtNombres" class="form-control" placeholder="nombres">
                             </div>
