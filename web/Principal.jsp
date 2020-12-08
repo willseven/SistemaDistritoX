@@ -8,6 +8,12 @@
         <title>JSP Page</title>
     </head>
     <body>
+         <style>
+        .nav-item.current_page_item>a {
+    /* el tamaño por defecto es 14px */
+        background: red;
+}
+    </style>
         <!--añadir un sidebar-->
         <nav class="navbar navbar-expand-md navbar-light bg-info">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,7 +28,7 @@
                         <a style="margin-left: 10px; border: none;" class="btn btn-outline-light" href="Controlador?menu=Inicio" target="myFrame">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a style="margin-left: 10px; border: none;" class="btn btn-outline-light" href="Controlador?menu=Tramitar" target="myFrame">Tramitar</a>
+                        <a style="margin-left: 10px; border: none;" class="btn btn-outline-light" href="Controlador?menu=Tramitar&accion=ListarDoc&id=${usuario.getId()}" target="myFrame">Tramitar</a>
                     </li>
                     <li class="nav-item">
                         <a style="margin-left: 10px; border: none;" class="btn btn-outline-light" href="Controlador?menu=Historial" target="myFrame">Historial</a>
@@ -31,7 +37,7 @@
                         <a style="margin-left: 10px; border: none;" class="btn btn-outline-light" href="Controlador?menu=Contactos&accion=Editar&id=${usuario.getId()}" target="myFrame">Contactos</a>
                     </li>
                     <li class="nav-item">
-                        <a style="margin-left: 10px; border: none;" class="btn btn-outline-light" href="Controlador?menu=Perfil&accion=Editar&id=${usuario.getId()}" target="myFrame">${usuario.getNom()}</a>
+                        <a style="margin-left: 10px; border: none;" class="btn btn-outline-light" href="Controlador?menu=Perfil&accion=Editar&id=${usuario.getId()}" target="myFrame">Mi perfil</a>
                     </li>
 
                 </ul>                  
@@ -43,7 +49,7 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-lg-right dropdown-menu-sm-right text-center">
                     <a href="Controlador?menu=Perfil&accion=Listar" target="myFrame"><img src="img/user.png" alt="60" width="60"/></a>
-                    <a class="dropdown-item" href="Controlador?menu=Adminuser&accion=Perfil" target="myFrame">${usuario.getNom()}</a>
+                    <a class="dropdown-item" href="Controlador?menu=Perfil&accion=Editar&id=${usuario.getId()}" target="myFrame">${usuario.getNom()}</a>
                     <c:if test="${usuario.getTipous() == 1}">
                     <a class="dropdown-item" href="Controlador?menu=Adminuser&accion=Listar" target="myFrame">Administrar usuarios</a>
                     </c:if>
@@ -56,8 +62,8 @@
             </div>
 
         </nav>
-        <div class="embed-responsives m-4" style="height: 700px;">
-            <iframe class="embed-responsive-item" name="myFrame"  style="height: 100%; width: 100%; border:navy"></iframe>
+        <div class="embed-responsives m-4" style="height: 600px;">
+            <iframe class="embed-responsive-item" name="myFrame"  style="height: 100%; width: 100%; border: navy;"></iframe>
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>

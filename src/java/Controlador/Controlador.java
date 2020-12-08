@@ -1,5 +1,7 @@
 package Controlador;
 
+import Modelo.Documento;
+import Modelo.DocumentoDao;
 import Modelo.Usuario;
 import Modelo.UsuarioDao;
 import java.io.IOException;
@@ -13,9 +15,12 @@ import javax.servlet.http.HttpServletResponse;
 
 public class Controlador extends HttpServlet {
 
-Usuario us = new Usuario();
+    Usuario us = new Usuario();
     UsuarioDao udao = new UsuarioDao();
+    Documento doc = new Documento();
+    DocumentoDao docdao= new DocumentoDao();
     int ide;
+    int docuse;
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -106,7 +111,87 @@ Usuario us = new Usuario();
         if (menu.equals("Inicio")) {
             request.getRequestDispatcher("Inicio.jsp").forward(request, response);
         }
+        //// TRAMITAR///
         if (menu.equals("Tramitar")) {
+            
+           switch (accion) {
+                case "Listar":
+                    List lista = udao.listar();
+                    request.setAttribute("usuarios", lista);
+                    break;
+                case "ListarDoc":
+                    docuse= Integer.parseInt(request.getParameter("id"));
+                    List lispar = docdao.listarDoc(docuse);
+                    request.setAttribute("document", lispar);
+                    break;
+                    case "Actualizar":
+                    
+                String nom1 = request.getParameter("txtNombres");
+                String apellido1 = request.getParameter("txtApellido");
+                String cel1 = request.getParameter("txtCelular");
+                int ci1 = Integer.parseInt(request.getParameter("txtCi"));
+                String fanac1 = request.getParameter("txtFnac");
+                String direc1 = request.getParameter("txtDirec");
+                String email1 = request.getParameter("txtEmail");
+                String clave1 = request.getParameter("txtClave");
+                int tipous1 = Integer.parseInt(request.getParameter("txtTipo"));
+                int tipodep1 = Integer.parseInt(request.getParameter("txtDepar"));
+                us.setNom(nom1);
+                us.setApellido(apellido1);
+                us.setCel(cel1);
+                us.setCi(ci1);
+                us.setFnac(fanac1);
+                us.setDir(direc1);
+                us.setEmail(email1);
+                us.setClave(clave1);
+                us.setTipous(tipous1);
+                us.setTipodep(tipodep1);
+                us.setId(ide);
+                udao.actualizar(us);
+                request.getRequestDispatcher("Controlador?menu=Adminuser&accion=Listar").forward(request, response);
+                    break;
+                case "Agregar":                
+                String nom = request.getParameter("txtNombres");
+                String apellido = request.getParameter("txtApellido");
+                String cel = request.getParameter("txtCelular");
+                int ci = Integer.parseInt(request.getParameter("txtCi"));
+                String fanac = request.getParameter("txtFnac");
+                String direc = request.getParameter("txtDirec");
+                String email = request.getParameter("txtEmail");
+                String clave = request.getParameter("txtClave");
+                int tipous = Integer.parseInt(request.getParameter("txtTipo"));
+                int tipodep = Integer.parseInt(request.getParameter("txtDepar"));
+                us.setNom(nom);
+                us.setApellido(apellido);
+                us.setCel(cel);
+                us.setCi(ci);
+                us.setFnac(fanac);
+                us.setDir(direc);
+                us.setEmail(email);
+                us.setClave(clave);
+                us.setTipous(tipous);
+                us.setTipodep(tipodep);
+                
+                udao.agregar(us);
+                request.getRequestDispatcher("Controlador?menu=Adminuser&accion=Listar").forward(request, response);
+                    break;
+                case "Editar":
+                    ide= Integer.parseInt(request.getParameter("id"));
+                    Usuario us = udao.listarId(ide);
+                    request.setAttribute("usuario", us);
+                    request.getRequestDispatcher("Controlador?menu=Adminuser&accion=Listar").forward(request, response);
+                    break;
+                
+                case "Delete":
+                ide= Integer.parseInt(request.getParameter("id"));  
+                udao.delete(ide);
+                request.getRequestDispatcher("Controlador?menu=Adminuser&accion=Listar").forward(request, response);
+                    break;
+                default:
+                    throw new AssertionError();
+            
+            
+        }
             request.getRequestDispatcher("Tramitar.jsp").forward(request, response);
         }
         if (menu.equals("Historial")) {

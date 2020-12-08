@@ -19,7 +19,7 @@
                     <div class="d-flex w-100 justify-content-between">
                         <h6 class="mb-1">Nombre</h6>      
                     </div>
-                    <small>${usuario.getNom()}<span>--</span>${usuario.getApellido()}</small>
+                    <small>${usuario.getNom()} &nbsp; ${usuario.getApellido()}</small>
                 </a>
                 <a href="#" class="list-group-item list-group-item-action align-items-start">
                     <div class="d-flex w-100 justify-content-between">

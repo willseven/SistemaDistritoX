@@ -7,6 +7,12 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
         <title>JSP Page</title>
     </head>
+    <style>
+        * {
+    /* el tamaño por defecto es 14px */
+    font-size: 13px;
+}
+    </style>
     <body>
         <div class="d-flex">
             <div class="card col-sm-3">
@@ -49,7 +55,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-9">
+            <div class="col-sm-9 font-">
                 <div class="card">
                     <div class="card-body">
 
@@ -66,7 +72,8 @@
                                     <th>email</th>
                                     <th>clave</th>
                                     <th>tipouser</th>
-                                    <th>departamento</th>
+                                    <th>dep</th>
+                                    <th>operaciones</th>
                                 </tr>
                             </thead>
                             <tbody>
