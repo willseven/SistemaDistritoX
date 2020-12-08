@@ -30,7 +30,7 @@
                         <a style="margin-left: 10px; border: none;" class="btn btn-outline-light" href="Controlador?menu=Contactos" target="myFrame">Contactos</a>
                     </li>
                     <li class="nav-item">
-                        <a style="margin-left: 10px; border: none;" class="btn btn-outline-light" href="Controlador?menu=Acercade" target="myFrame">Acerca de</a>
+                        <a style="margin-left: 10px; border: none;" class="btn btn-outline-light" href="Controlador?menu=Perfil&accion=Listar" target="myFrame">Mi Perfil</a>
                     </li>
 
                 </ul>                  
@@ -41,8 +41,8 @@
                     ${usuario.getNom()}
                 </button>
                 <div class="dropdown-menu dropdown-menu-lg-right dropdown-menu-sm-right text-center">
-                    <a href="Controlador?menu=Perfil" target="myFrame"><img src="img/user.png" alt="60" width="60"/></a>
-                    <a class="dropdown-item" href="Controlador?menu=Perfil" target="myFrame">${usuario.getNom()}</a>
+                    <a href="Controlador?menu=Perfil&accion=Listar" target="myFrame"><img src="img/user.png" alt="60" width="60"/></a>
+                    <a class="dropdown-item" href="Controlador?menu=Adminuser&accion=Perfil" target="myFrame">${usuario.getNom()}</a>
                     <a class="dropdown-item" href="Controlador?menu=Adminuser&accion=Listar" target="myFrame">Administrar usuarios</a>
                     <div class="dropdown-divider"></div>
                     <form action="Validar" method="POST">
