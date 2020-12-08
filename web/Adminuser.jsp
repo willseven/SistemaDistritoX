@@ -14,36 +14,37 @@
                     <div class="form-group"> 
                         <form action="Controlador?menu=Adminuser" method="POST">                                       
                             <div class="form-group">
-                                <input type="text" name="txtNombres" class="form-control" placeholder="nombres">
+                                <input type="text" value="${usuario.getNom()}" name="txtNombres" class="form-control" placeholder="nombres">
                             </div>
                             <div class="form-group">
-                                <input type="text" name="txtApellido" class="form-control" placeholder="apellidos">
+                                <input type="text" value="${usuario.getApellido()}" name="txtApellido" class="form-control" placeholder="apellidos">
                             </div>
                             <div class="form-group">
-                                <input type="text" name="txtCelular" class="form-control" placeholder="celular">
+                                <input type="text" value="${usuario.getCel()}" name="txtCelular" class="form-control" placeholder="celular">
                             </div>
                             <div class="form-group">
-                                <input type="text" name="txtCi" class="form-control" placeholder="ci">
+                                <input type="text" value="${usuario.getCi()}" name="txtCi" class="form-control" placeholder="ci">
                             </div>
                             <div class="form-group">
-                                <input type="date" name="txtFnac" class="form-control" placeholder="fecha de nacimiento">
+                                <input type="date" value="${usuario.getFnac()}" name="txtFnac" class="form-control" placeholder="fecha de nacimiento">
                             </div>
                             <div class="form-group">
-                                <input type="text" name="txtDirec" class="form-control" placeholder="direccion">
+                                <input type="text" value="${usuario.getDir()}" name="txtDirec" class="form-control" placeholder="direccion">
                             </div>
                             <div class="form-group">
-                                <input type="text" name="txtEmail" class="form-control" placeholder="email">
+                                <input type="text" value="${usuario.getEmail()}" name="txtEmail" class="form-control" placeholder="email">
                             </div>
                             <div class="form-group">
-                                <input type="text" name="txtClave" class="form-control" placeholder="clave">
+                                <input type="text" value="${usuario.getClave()}" name="txtClave" class="form-control" placeholder="clave">
                             </div>
                             <div class="form-group">
-                                <input type="text" name="txtTipo" class="form-control" placeholder="tipo user">
+                                <input type="text" value="${usuario.getTipous()}" name="txtTipo" class="form-control" placeholder="tipo user">
                             </div>
                             <div class="form-group">
-                                <input type="text" name="txtDepar" class="form-control" placeholder="departamento">
+                                <input type="text" value="${usuario.getTipodep()}" name="txtDepar" class="form-control" placeholder="departamento">
                             </div>
                             <input type="submit" name="accion" value="Agregar" class="btn btn-info">
+                            <input type="submit" name="accion" value="Actualizar" class="btn btn-success">
                         </form>
                     </div>
                 </div>
@@ -83,8 +84,8 @@
                                     <td>${us.getTipous()}</td>
                                     <td>${us.getTipodep()}</td>
                                     <td>
-                                        <a>Editar</a>
-                                        <a>Eliminar</a>
+                                        <a class="btn btn-warning" href="Controlador?menu=Adminuser&accion=Editar&id=${us.getId()}">Editar</a>
+                                        <a class="btn btn-danger" href="Controlador?menu=Adminuser&accion=Delete&id=${us.getId()}">Eliminar</a>
                                     </td>
                                 </tr>
                             </c:forEach>

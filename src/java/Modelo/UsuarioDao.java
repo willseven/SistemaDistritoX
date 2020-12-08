@@ -54,7 +54,7 @@ public class UsuarioDao {
                 Usuario us=new Usuario();
                 us.setId(rs.getInt("id_usuario"));
                 us.setNom(rs.getString("nombres_usuario"));
-                us.setClave(rs.getString("apellido_usuario"));
+                us.setApellido(rs.getString("apellido_usuario"));
                 us.setCel(rs.getString("celular_usuario"));
                 us.setCi(rs.getInt("ci_usuario"));
                 us.setFnac(rs.getString("fnac_usuario"));
@@ -117,7 +117,7 @@ public class UsuarioDao {
         return uss;
     }
     public int actualizar(Usuario us){
-       String sql="update set nombres_usuario=?, apellido_usuario=?, celular_usuario=?, ci_usuario=?, fnac_usuario=?, direccion_usuario=?, email_usuario=?, clave_usuario=?, usuario_tipouser=?, usuario_departamento=? where id_usuario = ?";
+       String sql="update usuario set nombres_usuario=?, apellido_usuario=?, celular_usuario=?, ci_usuario=?, fnac_usuario=?, direccion_usuario=?, email_usuario=?, clave_usuario=?, usuario_tipouser=?, usuario_departamento=? where id_usuario = ?";
         try {
             con=cn.Conexion();
             ps=con.prepareStatement(sql);
