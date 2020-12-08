@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -43,8 +44,10 @@
                 <div class="dropdown-menu dropdown-menu-lg-right dropdown-menu-sm-right text-center">
                     <a href="Controlador?menu=Perfil&accion=Listar" target="myFrame"><img src="img/user.png" alt="60" width="60"/></a>
                     <a class="dropdown-item" href="Controlador?menu=Adminuser&accion=Perfil" target="myFrame">${usuario.getNom()}</a>
-                    
+                    <c:if test="${usuario.getTipous() == 1}">
                     <a class="dropdown-item" href="Controlador?menu=Adminuser&accion=Listar" target="myFrame">Administrar usuarios</a>
+                    </c:if>
+                    
                     <div class="dropdown-divider"></div>
                     <form action="Validar" method="POST">
                         <button name="accion"   value="Salir" class="dropdown-item" href="#">Salir</button>
