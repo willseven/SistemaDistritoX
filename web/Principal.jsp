@@ -31,6 +31,9 @@
                         <a style="margin-left: 10px; border: none;" class="btn btn-outline-light" href="Controlador?menu=Tramitar&accion=ListarDoc&id=${usuario.getId()}" target="myFrame">Tramitar</a>
                     </li>
                     <li class="nav-item">
+                        <a style="margin-left: 10px; border: none;" class="btn btn-outline-light" href="Controlador?menu=Tramitar&accion=Listar" target="myFrame">Tramitar 2</a>
+                    </li>
+                    <li class="nav-item">
                         <a style="margin-left: 10px; border: none;" class="btn btn-outline-light" href="Controlador?menu=Historial" target="myFrame">Historial</a>
                     </li>
                     <li class="nav-item">

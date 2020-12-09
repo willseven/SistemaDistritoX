@@ -4,7 +4,6 @@ public class Documento {
     int iddoc;
     String titulo_doc;
     String descripcion_doc;
-    String finicio_doc;
     int doc_dep;
     int doc_tipodoc;
     int doc_user;
@@ -12,11 +11,10 @@ public class Documento {
     public Documento() {
     }
 
-    public Documento(int iddoc, String titulo_doc, String descripcion_doc, String finicio_doc, int doc_dep, int doc_tipodoc, int doc_user) {
+    public Documento(int iddoc, String titulo_doc, String descripcion_doc, int doc_dep, int doc_tipodoc, int doc_user) {
         this.iddoc = iddoc;
         this.titulo_doc = titulo_doc;
         this.descripcion_doc = descripcion_doc;
-        this.finicio_doc = finicio_doc;
         this.doc_dep = doc_dep;
         this.doc_tipodoc = doc_tipodoc;
         this.doc_user = doc_user;
@@ -46,14 +44,6 @@ public class Documento {
         this.descripcion_doc = descripcion_doc;
     }
 
-    public String getFinicio_doc() {
-        return finicio_doc;
-    }
-
-    public void setFinicio_doc(String finicio_doc) {
-        this.finicio_doc = finicio_doc;
-    }
-
     public int getDoc_dep() {
         return doc_dep;
     }
@@ -77,6 +67,11 @@ public class Documento {
     public void setDoc_user(int doc_user) {
         this.doc_user = doc_user;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Documento{" + "iddoc=" + iddoc + ", titulo_doc=" + titulo_doc + ", descripcion_doc=" + descripcion_doc + ", doc_dep=" + doc_dep + ", doc_tipodoc=" + doc_tipodoc + ", doc_user=" + doc_user + '}';
+    }
+
+       
 }
