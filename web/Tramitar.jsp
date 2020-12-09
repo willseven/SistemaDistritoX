@@ -7,6 +7,12 @@
         <title>JSP Page</title>
          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     </head>
+    <style>
+        * {
+    /* el tamaño por defecto es 14px */
+    font-size: 13px;
+}
+    </style>
     <body>
 <div class="d-flex">
             <div class="card col-sm-3">
@@ -20,11 +26,20 @@
                                 <input type="text" value="${documento.getDescripcion_doc()}" name="txtDescripcion" class="form-control" placeholder="Descripcion">
                             </div>
                             <div class="form-group">
+                                <input type="text" value="${documento.getTramitante()}" name="txtTramitante" class="form-control" placeholder="tramitante">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" value="${documento.getFechain()}" name="txtFechain" class="form-control" placeholder="fecha inicio">
+                            </div>
+                            <div class="form-group">
                                 <input type="text" value="${documento.getDoc_dep()}"  name="txtDepartamento" class="form-control" placeholder="Departamento">
                             </div>
                             <div class="form-group">
                                 <input type="text" value="${documento.getDoc_tipodoc()}"  name="txtTipodoc" class="form-control" placeholder="Tipo de documento">
-                            </div>                            
+                            </div>
+                            <div class="form-group">
+                                <input type="text" value="${documento.getDoc_user()}"  name="txtUser" class="form-control" placeholder="id de usuario">
+                            </div> 
                             <input type="submit"  name="accion" value="Agregar" class="btn btn-info">
                             <input type="submit"  name="accion" value="Actualizar" class="btn btn-success">
                         </form>
@@ -41,6 +56,8 @@
                                     <th>Id</th>
                                     <th>Titulo</th>
                                     <th>Descripcion</th>       
+                                    <th>tramitante</th>       
+                                    <th>fecha inicio</th>       
                                     <th>departamento</th>
                                     <th>tipo de documento</th>
                                     <th>usuario quien envio</th>                       
@@ -52,6 +69,8 @@
                                     <td>${doc.getIddoc()}</td>
                                     <td>${doc.getTitulo_doc()}</td>
                                     <td>${doc.getDescripcion_doc()}</td>                                  
+                                    <td>${doc.getTramitante()}</td>                                  
+                                    <td>${doc.getFechain()}</td>                                  
                                     <td>${doc.getDoc_dep()}</td>
                                     <td>${doc.getDoc_tipodoc()}</td>
                                     <td>${doc.getDoc_user()}</td>

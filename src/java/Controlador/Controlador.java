@@ -108,6 +108,10 @@ public class Controlador extends HttpServlet {
         }
             request.getRequestDispatcher("Adminuser.jsp").forward(request, response);
         }  
+            
+            
+            
+            
         //// TRAMITAR///
         if (menu.equals("Tramitar")) {
             
@@ -116,16 +120,23 @@ public class Controlador extends HttpServlet {
                     List lista = docdao.listar();
                     request.setAttribute("document", lista);
                     break;
+                case "ListarDoc":
+                    
+                    List lispar = docdao.listarDoc(ide);
+                    request.setAttribute("document", lispar);
+                    break;
                     case "Actualizar":
                     
                 String titul = request.getParameter("txtTitulo");
                 String descripcion = request.getParameter("txtDescripcion");
+                String tramitant = request.getParameter("txtTramitante");
                 int dep = Integer.parseInt(request.getParameter("txtDepartamento"));
                 int tipo = Integer.parseInt(request.getParameter("txtTipodoc"));
-                int userid = 4;
+                int userid = Integer.parseInt(request.getParameter("txtUser"));
                 
                 doc.setTitulo_doc(titul);
                 doc.setDescripcion_doc(descripcion);
+                doc.setTramitante(tramitant);
                 doc.setDoc_dep(dep);
                 doc.setDoc_tipodoc(tipo);
                 doc.setDoc_user(userid);
@@ -135,16 +146,18 @@ public class Controlador extends HttpServlet {
                 request.getRequestDispatcher("Controlador?menu=Tramitar&accion=Listar").forward(request, response);
                     break;
                 case "Agregar":
-                    
+                //docus = Integer.parseInt(request.getParameter("id"));   
                 String titulo = request.getParameter("txtTitulo");
                 String descripcion1 = request.getParameter("txtDescripcion");
+                String tramitant1 = request.getParameter("txtTramitante");
                 //aqui me quede
                 int departamento = Integer.parseInt(request.getParameter("txtDepartamento"));
                 int tipodoc = Integer.parseInt(request.getParameter("txtTipodoc"));
-                int docUser =Integer.parseInt(request.getParameter("id"));
+                int docUser = Integer.parseInt(request.getParameter("txtUser"));
                 
                 doc.setTitulo_doc(titulo);
                 doc.setDescripcion_doc(descripcion1);      
+                doc.setTramitante(tramitant1);
                 doc.setDoc_dep(departamento);
                 doc.setDoc_tipodoc(tipodoc);
                 doc.setDoc_user(docUser); 

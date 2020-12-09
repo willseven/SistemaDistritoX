@@ -59,7 +59,7 @@
                     
                     <div class="dropdown-divider"></div>
                     <form action="Validar" method="POST">
-                        <button name="accion"   value="Salir" class="dropdown-item" href="#">Salir</button>
+                        <button name="accion" value="Salir" class="dropdown-item" href="#">Salir</button>
                     </form>
                 </div>
             </div>

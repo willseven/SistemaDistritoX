@@ -26,6 +26,8 @@ public class DocumentoDao {
                 docu.setIddoc(rs.getInt("id_documento"));
                 docu.setTitulo_doc(rs.getString("titulo_doc"));
                 docu.setDescripcion_doc(rs.getString("descripcion_doc"));
+                docu.setTramitante(rs.getString("tramitante"));
+                docu.setFechain(rs.getString("fecha_inicio"));
                 //docu.setFinicio_doc(rs.getString("finicio_doc"));
                 docu.setDoc_dep(rs.getInt("documento_departamento"));   
                 docu.setDoc_tipodoc(rs.getInt("documento_tipodoc"));
@@ -38,16 +40,17 @@ public class DocumentoDao {
     }
     
     public int agregar(Documento doc){ 
-        String sql="insert into documento(titulo_doc, descripcion_doc, documento_departamento, documento_tipodoc, documento_usuario)values(?,?,?,?,?)";
+        String sql="insert into documento(titulo_doc, descripcion_doc, tramitante,fecha_inicio, documento_departamento, documento_tipodoc, documento_usuario)values(?,?,?,null,?,?,?)";
         try {
             con=cn.Conexion();
             ps=con.prepareStatement(sql);
             
                 ps.setString(1, doc.getTitulo_doc());
                 ps.setString(2, doc.getDescripcion_doc());
-                ps.setInt(3, doc.getDoc_dep());
-                ps.setInt(4, doc.getDoc_tipodoc());
-                ps.setInt(5, doc.getDoc_user());
+                ps.setString(3, doc.getTramitante());
+                ps.setInt(4, doc.getDoc_dep());
+                ps.setInt(5, doc.getDoc_tipodoc());
+                ps.setInt(6, doc.getDoc_user());
                 
                 ps.executeUpdate();
         } catch (Exception e) {
@@ -65,29 +68,55 @@ public class DocumentoDao {
             while (rs.next()) {
                 docu.setTitulo_doc(rs.getString(2));
                 docu.setDescripcion_doc(rs.getString(3));
-                //docu.setFinicio_doc(rs.getString(4));
-                docu.setDoc_dep(rs.getInt(4));   
-                docu.setDoc_tipodoc(rs.getInt(5));
-                docu.setDoc_user(rs.getInt(6));               
+                docu.setTramitante(rs.getString(4));
+                docu.setFechain(rs.getString(5));
+                docu.setDoc_dep(rs.getInt(6));   
+                docu.setDoc_tipodoc(rs.getInt(7));
+                docu.setDoc_user(rs.getInt(8));               
                 
             }
         } catch (Exception e) {
         }
         return docu;
     }
+    public List listarDoc(int docuse){
+        
+        String sql="select * from documento where documento_usuario="+docuse;
+        List<Documento>lispar=new ArrayList<>();
+        try {
+            con=cn.Conexion();
+            ps=con.prepareStatement(sql);
+            rs=ps.executeQuery();
+            while (rs.next()) {
+                Documento doce=new Documento();
+                doce.setIddoc(rs.getInt("id_documento"));
+                doce.setTitulo_doc(rs.getString("titulo_doc"));
+                doce.setDescripcion_doc(rs.getString("descripcion_doc"));
+                //doce.setFinicio_doc(rs.getString("finicio_doc"));
+                doce.setDoc_dep(rs.getInt("documento_departamento"));   
+                doce.setDoc_tipodoc(rs.getInt("documento_tipodoc"));
+                doce.setDoc_user(rs.getInt("documento_usuario"));
+                lispar.add(doce);
+            }
+        } catch (Exception e) {
+        }
+        return lispar;
+    }
+
     
     public int actualizar(Documento docu){
-       String sql="update documento set titulo_doc=?, descripcion_doc=?, documento_departamento=?, documento_tipodoc=?, documento_usuario=? where id_documento = ?";
+       String sql="update documento set titulo_doc=?, descripcion_doc=?,tramitante=?, fecha_inicio=null, documento_departamento=?, documento_tipodoc=?, documento_usuario=? where id_documento = ?";
         try {
             con=cn.Conexion();
             ps=con.prepareStatement(sql);
             
                 ps.setString(1, docu.getTitulo_doc());
                 ps.setString(2, docu.getDescripcion_doc());  
-                ps.setInt(3, docu.getDoc_dep());
-                ps.setInt(4, docu.getDoc_tipodoc());
-                ps.setInt(5, docu.getDoc_user());
-                ps.setInt(6, docu.getIddoc());
+                ps.setString(3, docu.getTramitante());  
+                ps.setInt(4, docu.getDoc_dep());
+                ps.setInt(5, docu.getDoc_tipodoc());
+                ps.setInt(6, docu.getDoc_user());
+                ps.setInt(7, docu.getIddoc());
                 ps.executeUpdate();
         } catch (Exception e) {
         }
