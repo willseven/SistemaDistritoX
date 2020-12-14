@@ -39,6 +39,9 @@
                             </div>
                             <div class="form-group">
                                 <input type="text" value="${documento.getDoc_user()}"  name="txtUser" class="form-control" placeholder="id de usuario">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" value="${documento.getEstado()}"  name="txtEstado" class="form-control" placeholder="estado">
                             </div> 
                             <input type="submit"  name="accion" value="Agregar" class="btn btn-info">
                             <input type="submit"  name="accion" value="Actualizar" class="btn btn-success">
@@ -61,6 +64,7 @@
                                     <th>departamento</th>
                                     <th>tipo de documento</th>
                                     <th>usuario quien envio</th>                       
+                                    <th>estado</th>                       
                                 </tr>
                             </thead>
                             <tbody>
@@ -74,6 +78,7 @@
                                     <td>${doc.getDoc_dep()}</td>
                                     <td>${doc.getDoc_tipodoc()}</td>
                                     <td>${doc.getDoc_user()}</td>
+                                    <td>${doc.getEstado()}</td>
                                     <td>
                                         <a class="btn btn-warning" href="Controlador?menu=Tramitar&accion=Editar&id=${doc.getIddoc()}">Editar</a>
                                         <a class="btn btn-danger" href="Controlador?menu=Tramitar&accion=Delete&id=${doc.getIddoc()}">Eliminar</a>

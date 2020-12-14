@@ -32,6 +32,7 @@ public class DocumentoDao {
                 docu.setDoc_dep(rs.getInt("documento_departamento"));   
                 docu.setDoc_tipodoc(rs.getInt("documento_tipodoc"));
                 docu.setDoc_user(rs.getInt("documento_usuario"));
+                docu.setEstado(rs.getString("estado"));
                 lista.add(docu);
             }
         } catch (Exception e) {
@@ -40,7 +41,7 @@ public class DocumentoDao {
     }
     
     public int agregar(Documento doc){ 
-        String sql="insert into documento(titulo_doc, descripcion_doc, tramitante,fecha_inicio, documento_departamento, documento_tipodoc, documento_usuario)values(?,?,?,null,?,?,?)";
+        String sql="insert into documento(titulo_doc, descripcion_doc, tramitante,fecha_inicio, documento_departamento, documento_tipodoc, documento_usuario,estado)values(?,?,?,null,?,?,?,?)";
         try {
             con=cn.Conexion();
             ps=con.prepareStatement(sql);
@@ -51,6 +52,7 @@ public class DocumentoDao {
                 ps.setInt(4, doc.getDoc_dep());
                 ps.setInt(5, doc.getDoc_tipodoc());
                 ps.setInt(6, doc.getDoc_user());
+                ps.setString(7, doc.getEstado());
                 
                 ps.executeUpdate();
         } catch (Exception e) {
@@ -72,7 +74,7 @@ public class DocumentoDao {
                 docu.setFechain(rs.getString(5));
                 docu.setDoc_dep(rs.getInt(6));   
                 docu.setDoc_tipodoc(rs.getInt(7));
-                docu.setDoc_user(rs.getInt(8));               
+                docu.setDoc_user(rs.getInt(8));                             docu.setEstado(rs.getString(9));               
                 
             }
         } catch (Exception e) {
@@ -105,7 +107,7 @@ public class DocumentoDao {
 
     
     public int actualizar(Documento docu){
-       String sql="update documento set titulo_doc=?, descripcion_doc=?,tramitante=?, fecha_inicio=null, documento_departamento=?, documento_tipodoc=?, documento_usuario=? where id_documento = ?";
+       String sql="update documento set titulo_doc=?, descripcion_doc=?,tramitante=?, fecha_inicio=null, documento_departamento=?, documento_tipodoc=?, documento_usuario=?, estado = ? where id_documento = ?";
         try {
             con=cn.Conexion();
             ps=con.prepareStatement(sql);
@@ -116,7 +118,8 @@ public class DocumentoDao {
                 ps.setInt(4, docu.getDoc_dep());
                 ps.setInt(5, docu.getDoc_tipodoc());
                 ps.setInt(6, docu.getDoc_user());
-                ps.setInt(7, docu.getIddoc());
+                ps.setString(7, docu.getEstado());
+                ps.setInt(8, docu.getIddoc());
                 ps.executeUpdate();
         } catch (Exception e) {
         }

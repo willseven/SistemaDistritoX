@@ -9,11 +9,12 @@ public class Documento {
     int doc_dep;
     int doc_tipodoc;
     int doc_user;
+    String estado;
 
     public Documento() {
     }
 
-    public Documento(int iddoc, String titulo_doc, String descripcion_doc, String tramitante, String fechain, int doc_dep, int doc_tipodoc, int doc_user) {
+    public Documento(int iddoc, String titulo_doc, String descripcion_doc, String tramitante, String fechain, int doc_dep, int doc_tipodoc, int doc_user, String estado) {
         this.iddoc = iddoc;
         this.titulo_doc = titulo_doc;
         this.descripcion_doc = descripcion_doc;
@@ -22,6 +23,7 @@ public class Documento {
         this.doc_dep = doc_dep;
         this.doc_tipodoc = doc_tipodoc;
         this.doc_user = doc_user;
+        this.estado = estado;
     }
 
     public int getIddoc() {
@@ -87,9 +89,17 @@ public class Documento {
     public void setDoc_user(int doc_user) {
         this.doc_user = doc_user;
     }
-    
 
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
     
+    
+   
 
        
 }

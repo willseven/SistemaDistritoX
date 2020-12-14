@@ -133,6 +133,7 @@ public class Controlador extends HttpServlet {
                 int dep = Integer.parseInt(request.getParameter("txtDepartamento"));
                 int tipo = Integer.parseInt(request.getParameter("txtTipodoc"));
                 int userid = Integer.parseInt(request.getParameter("txtUser"));
+                String estado = request.getParameter("txtEstado");
                 
                 doc.setTitulo_doc(titul);
                 doc.setDescripcion_doc(descripcion);
@@ -140,6 +141,7 @@ public class Controlador extends HttpServlet {
                 doc.setDoc_dep(dep);
                 doc.setDoc_tipodoc(tipo);
                 doc.setDoc_user(userid);
+                doc.setEstado(estado);
                 
                 doc.setIddoc(ide);
                 docdao.actualizar(doc);
@@ -154,6 +156,7 @@ public class Controlador extends HttpServlet {
                 int departamento = Integer.parseInt(request.getParameter("txtDepartamento"));
                 int tipodoc = Integer.parseInt(request.getParameter("txtTipodoc"));
                 int docUser = Integer.parseInt(request.getParameter("txtUser"));
+                String estado1 = request.getParameter("txtEstado");
                 
                 doc.setTitulo_doc(titulo);
                 doc.setDescripcion_doc(descripcion1);      
@@ -161,6 +164,7 @@ public class Controlador extends HttpServlet {
                 doc.setDoc_dep(departamento);
                 doc.setDoc_tipodoc(tipodoc);
                 doc.setDoc_user(docUser); 
+                doc.setEstado(estado1); 
                 docdao.agregar(doc);
                 request.getRequestDispatcher("Controlador?menu=Tramitar&accion=Listar").forward(request, response);
                     break;
