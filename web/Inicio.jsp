@@ -27,7 +27,6 @@ table td{
     
 }
 .card img{
-    display: flex;
     width: 96%;
     text-align: center;
     background: white;
