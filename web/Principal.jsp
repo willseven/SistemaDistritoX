@@ -96,8 +96,10 @@
             </div>
         </ul>
     </nav>
+
     <div class="embed-responsives m-4" style="height: 550px;">
-        <iframe class="embed-responsive-item" name="myFrame"  style="height: 100%; width: 100%; border: navy;"></iframe>
+        <iframe src="Inicio.jsp" class="embed-responsive-item" name="myFrame"  style="height: 100%; width: 100%; border: navy;">
+                    </iframe>
     </div>
     <footer class="footer-copyright">
         <div class="footer-copyright text-center py-3">© 2020 Copyright:
