@@ -10,8 +10,23 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+        <link href="https://fonts.googleapis.com/css2?family=Ruluko&display=swap" rel="stylesheet">
     </head>
+    <style>
+        
+               *{
+               font-family: 'Ruluko';
+           }
+           small{
+               padding: 2px 5px;
+               color:rgba(0,0,0,.8);
+               display:block;
+               border-radius: 1.5px;
+               border:1px solid rgba(38,38,38,.3);
+           }
+    </style>
     <body>        
         <div class="container col-4">
             <div class="list-group">
@@ -19,7 +34,7 @@
                     <div class="d-flex w-100 justify-content-between">
                         <h6 class="mb-1">Nombre</h6>      
                     </div>
-                    <small>${usuario.getNom()} &nbsp; ${usuario.getApellido()}</small>
+                    <small>${usuario.getNom()}&nbsp;${usuario.getApellido()}</small>
                 </a>
                 <a href="#" class="list-group-item list-group-item-action align-items-start">
                     <div class="d-flex w-100 justify-content-between">
@@ -64,8 +79,9 @@
                     <small>${usuario.getTipodep()}</small>
                 </a>                               
             </div>
+                    
         </div>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+                    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script> 
     </body>
 </html>

@@ -5,12 +5,57 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Ruluko&display=swap" rel="stylesheet">
     </head>
     <style>
         * {
     /* el tamaño por defecto es 14px */
-    font-size: 13px;
+    font-size: 14px;
+    font-family: ruluko;
+}
+.yeelo{
+    background: rgb(  255, 221, 67  );
+}
+.yeelo:hover{
+    background: rgb(38,38,38);
+    color: rgba(255,255,255,.9);
+}
+table th{
+    background: rgb(  38, 38, 38 ) ;
+    color: rgba(255,255,255,.6);
+    border: 1px solid white;
+}
+table td{
+    border: 1px solid rgba(0,0,0,.2);
+}
+
+.col-sm-3{
+    padding: 2px;
+}
+.col-sm-3 input[type=text], .col-sm-3 input[type=date]{
+    
+    border-radius: 2px;
+    color:black;
+    border:1px solid rgba(38,38,38,.3);
+    padding: 3px 5px;
+    margin:2px;
+}
+.btn-un{
+    margin-bottom: 3px;
+    background:    #2ecc71;
+}
+.btn-dos{
+    background:   #cd6155;
+}
+.viper{
+    display: block;
+    width: 100%;
+    color:white;
+}
+.viper:hover{
+    background: rgb(38,38,38);
+    color:white;
 }
     </style>
     <body>
@@ -43,8 +88,8 @@
                             <div class="form-group">
                                 <input type="text" value="${documento.getEstado()}"  name="txtEstado" class="form-control" placeholder="estado">
                             </div> 
-                            <input type="submit"  name="accion" value="Agregar" class="btn btn-info">
-                            <input type="submit"  name="accion" value="Actualizar" class="btn btn-success">
+                            <input type="submit"  name="accion" value="Agregar" class="btn viper btn-un">
+                            <input type="submit"  name="accion" value="Actualizar" class="btn viper btn-dos">
                         </form>
                     </div>
                 </div>
@@ -56,15 +101,15 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
+                                    <th>#</th>
                                     <th>Titulo</th>
-                                    <th>Descripcion</th>       
-                                    <th>tramitante</th>       
-                                    <th>fecha inicio</th>       
-                                    <th>departamento</th>
-                                    <th>tipo de documento</th>
-                                    <th>usuario quien envio</th>                       
-                                    <th>estado</th>                       
+                                    <th style="display:none;">Descripcion</th>       
+                                    <th>Tramitante</th>       
+                                    <th>Fecha inicio</th>       
+                                    <th>Dep</th>
+                                    <th>Tipo</th>
+                                    <th style="display:none;">Encargado</th>                       
+                                    <th style="display:none;">Estado</th>                       
                                 </tr>
                             </thead>
                             <tbody>
@@ -72,15 +117,15 @@
                                 <tr>
                                     <td>${doc.getIddoc()}</td>
                                     <td>${doc.getTitulo_doc()}</td>
-                                    <td>${doc.getDescripcion_doc()}</td>                                  
+                                    <td style="display:none;">${doc.getDescripcion_doc()}</td>                                  
                                     <td>${doc.getTramitante()}</td>                                  
                                     <td>${doc.getFechain()}</td>                                  
                                     <td>${doc.getDoc_dep()}</td>
                                     <td>${doc.getDoc_tipodoc()}</td>
-                                    <td>${doc.getDoc_user()}</td>
-                                    <td>${doc.getEstado()}</td>
+                                    <td style="display:none;">${doc.getDoc_user()}</td>
+                                    <td style="display:none;">${doc.getEstado()}</td>
                                     <td>
-                                        <a class="btn btn-warning" href="Controlador?menu=Tramitar&accion=Editar&id=${doc.getIddoc()}">Editar</a>
+                                        <a class="btn yeelo" href="Controlador?menu=Tramitar&accion=Editar&id=${doc.getIddoc()}">Editar</a>
                                         <a class="btn btn-danger" href="Controlador?menu=Tramitar&accion=Delete&id=${doc.getIddoc()}">Eliminar</a>
                                     </td>
                                 </tr>
@@ -95,6 +140,7 @@
 
         </div>
 
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>    </body>
+         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> 
+    </body>
 </html>

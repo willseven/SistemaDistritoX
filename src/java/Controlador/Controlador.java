@@ -1,5 +1,7 @@
 package Controlador;
 
+import Modelo.Contacto;
+import Modelo.ContactoDao;
 import Modelo.Documento;
 import Modelo.DocumentoDao;
 import Modelo.Usuario;
@@ -19,6 +21,8 @@ public class Controlador extends HttpServlet {
     UsuarioDao udao = new UsuarioDao();
     Documento doc = new Documento();
     DocumentoDao docdao= new DocumentoDao();
+    Contacto conta = new Contacto();
+    ContactoDao codao = new ContactoDao();
     int ide;
     int docuse;
     int docus;
@@ -188,24 +192,29 @@ public class Controlador extends HttpServlet {
         if (menu.equals("Inicio")) {
             request.getRequestDispatcher("Inicio.jsp").forward(request, response);
         }
+        
+        //HISTORIALLLLLLLLLLLLLL
         if (menu.equals("Historial")) {
+            
+            switch (accion) {
+                case "Listar":
+                    List lista = docdao.listar();
+                    request.setAttribute("document", lista);
+                    break;
+                 default:
+                    throw new AssertionError();  
+        }     
             request.getRequestDispatcher("Historial.jsp").forward(request, response);
         }
+        
+        
+        ///CONTACTOOOOOOOOOOOOOOOOOOOOOOOOOO
         if (menu.equals("Contactos")) {
             switch (accion) {
                 case "Listar":
-                    List lista = udao.listar();
-                    request.setAttribute("usuarios", lista);
+                    List lista = codao.listar();
+                    request.setAttribute("contame", lista);
                     break; 
-                case "Editar":
-                    ide= Integer.parseInt(request.getParameter("id"));
-                    Usuario us = udao.listarId(ide);
-                    request.setAttribute("usuario", us);
-                    request.getRequestDispatcher("Controlador?menu=Contactos&accion=Listar").forward(request, response);
-                    break;             
-                
-            
-            
         }
             request.getRequestDispatcher("Contactos.jsp").forward(request, response);
         }

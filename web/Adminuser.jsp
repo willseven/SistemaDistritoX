@@ -6,11 +6,57 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
         <title>JSP Page</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Ruluko&display=swap" rel="stylesheet">
     </head>
     <style>
         * {
     /* el tamaño por defecto es 14px */
+    font-size: 14px;
+    font-family: 'ruluko';
+}
+.yel-e{
+    background: rgb(  255, 221, 67  );
+    margin-bottom: 2px;
+}
+.yel-e:hover{
+    background: rgb(38,38,38);
+    color: rgba(255,255,255,.9);
+}
+.yel{
+    display: block;
+}
+table th{
+    background: rgb(  38, 38, 38 ) ;
+    color: rgba(255,255,255,.6);
+    border: 1px solid white;
+    overflow: auto;
+}
+table td{
+    border: 1px solid rgba(0,0,0,.2);
+}
+.col-sm-3{
+    padding: 2px;
+}
+.col-sm-3 input[type=text], .col-sm-3 input[type=date]{
+    border-radius: 2px;
+    color:black;
+    border:1px solid rgba(38,38,38,.3);
+    padding: 3px 5px;
+    margin:2px;
     font-size: 13px;
+}
+.btn-un{
+    margin-bottom: 3px;
+    background:    #2ecc71;
+}
+.btn-dos{
+    background:   #cd6155;
+}
+.viper{
+    display: block;
+    width: 100%;
+    color:white;
 }
     </style>
     <body>
@@ -49,8 +95,8 @@
                             <div class="form-group">
                                 <input type="text" value="${usuario.getTipodep()}" name="txtDepar" class="form-control" placeholder="departamento">
                             </div>
-                            <input type="submit" name="accion" value="Agregar" class="btn btn-info">
-                            <input type="submit" name="accion" value="Actualizar" class="btn btn-success">
+                            <input type="submit" name="accion" value="Agregar" class="btn viper btn-un">
+                            <input type="submit" name="accion" value="Actualizar" class="btn viper btn-dos">
                         </form>
                     </div>
                 </div>
@@ -67,13 +113,12 @@
                                     <th>Apellidos</th>
                                     <th>celular</th>
                                     <th>ci</th>
-                                    <th>fenac</th>
+                                    <th>nacimiento</th>
                                     <th>direccion</th>
                                     <th>email</th>
                                     <th>clave</th>
-                                    <th>tipouser</th>
+                                    <th>tipo</th>
                                     <th>dep</th>
-                                    <th>operaciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -91,8 +136,8 @@
                                     <td>${us.getTipous()}</td>
                                     <td>${us.getTipodep()}</td>
                                     <td>
-                                        <a class="btn btn-warning" href="Controlador?menu=Adminuser&accion=Editar&id=${us.getId()}">Editar</a>
-                                        <a class="btn btn-danger" href="Controlador?menu=Adminuser&accion=Delete&id=${us.getId()}">Eliminar</a>
+                                        <a class="btn yel yel-e" href="Controlador?menu=Adminuser&accion=Editar&id=${us.getId()}">Editar</a>
+                                        <a class="btn btn-danger yel" href="Controlador?menu=Adminuser&accion=Delete&id=${us.getId()}">Eliminar</a>
                                     </td>
                                 </tr>
                             </c:forEach>
